@@ -1,0 +1,19 @@
+show databases;
+CREATE DATABASE ecommerce;
+USE ecommerce;
+CREATE TABLE categories(Category_id INT PRIMARY KEY,
+Category_name VARCHAR(20),
+Category_description VARCHAR(200)
+);
+SELECT * FROM categories;
+CREATE TABLE product_categories(product_id INT,
+Category_id INT,
+primary key (product_id,category_id),
+foreign key (category_id) REFERENCES categories(Category_id) on delete cascade,
+foreign key (product_id) REFERENCES products(product_id) on delete cascade );
+
+create table products( product_id INT PRIMARY KEY,
+product_name varchar(30),
+product_description varchar (500),
+product_price float,
+product_status BOOLEAN);
